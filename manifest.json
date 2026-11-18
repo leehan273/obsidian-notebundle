@@ -1,0 +1,10 @@
+{
+    "id": "notebundle",
+    "name": "Notebundle",
+    "version": "0.9.0",
+    "minAppVersion": "1.15.1",
+    "description": "Support Notebundle (.notebundle) convention natively.",
+    "author": "Lee Han",
+    "authorUrl": "https://github.com/leehan273",
+    "isDesktopOnly": false
+}

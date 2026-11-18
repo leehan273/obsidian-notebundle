@@ -1,0 +1,253 @@
+/* File explorer */
+
+.notebundle-explorer-row:not(.is-being-renamed) > .collapse-icon {
+    display: none;
+}
+
+.notebundle-explorer-row > .notebundle-explorer-icon {
+    position: absolute;
+    inset-block: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--nav-collapse-icon-size, 16px);
+    height: 16px;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    margin-block: auto;
+    margin-inline-start: calc(-1 * (var(--nav-collapse-icon-size, 16px) + var(--size-4-1)));
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+    color: var(--nav-item-color, var(--text-muted));
+    cursor: pointer;
+    opacity: 0.55;
+    font: inherit;
+    appearance: none;
+}
+
+.notebundle-explorer-icon > span {
+    display: inline-flex;
+}
+
+.nav-folder.is-collapsed
+    > .notebundle-explorer-row
+    > .notebundle-explorer-icon
+    > .notebundle-explorer-icon-expanded,
+.nav-folder:not(.is-collapsed)
+    > .notebundle-explorer-row
+    > .notebundle-explorer-icon
+    > .notebundle-explorer-icon-collapsed {
+    display: none;
+}
+
+.notebundle-explorer-icon svg {
+    width: 13px;
+    height: 13px;
+    pointer-events: none;
+    transform: translateY(-1px);
+}
+
+.notebundle-explorer-invalid > .notebundle-explorer-icon {
+    color: var(--text-warning);
+    opacity: 0.75;
+}
+
+.notebundle-explorer-icon:is(:hover, :focus-visible) {
+    opacity: 1;
+}
+
+.notebundle-explorer-row:not(.notebundle-explorer-invalid)
+    > .notebundle-explorer-icon:is(:hover, :focus-visible) {
+    color: var(--nav-item-color-hover, var(--text-normal));
+}
+
+.notebundle-explorer-icon:focus-visible {
+    outline: 2px solid var(--interactive-accent);
+    outline-offset: 2px;
+}
+
+/* Keep the native text in the DOM/accessibility tree, but give the owned label the layout space. */
+.notebundle-explorer-custom-label:not(.is-being-renamed) > .nav-folder-title-content {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* Synchronous CSS fallback while the observer catches up with a native inline rename. */
+.notebundle-explorer-row.is-being-renamed > [data-notebundle-ui] {
+    display: none;
+}
+
+.notebundle-explorer-label {
+    container: notebundle-explorer-label / inline-size;
+    display: flex;
+    align-items: baseline;
+    flex: auto;
+    min-width: 0;
+    pointer-events: none;
+}
+
+.notebundle-explorer-name {
+    flex: 0 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.notebundle-explorer-suffix {
+    flex: none;
+    color: var(--text-faint);
+    font-size: var(--font-ui-smaller);
+}
+
+@container notebundle-explorer-label (max-width: 10em) {
+    .notebundle-explorer-suffix {
+        display: none;
+    }
+}
+
+.notebundle-explorer-extension {
+    flex: none;
+    pointer-events: none;
+}
+
+.notebundle-explorer-active {
+    background-color: var(--nav-item-background-active);
+    color: var(--nav-item-color-active);
+    font-weight: var(--nav-item-weight-active);
+}
+
+@media (pointer: coarse) {
+    .notebundle-explorer-row > .notebundle-explorer-icon {
+        width: 24px;
+        height: 24px;
+        margin-inline-start: calc(-24px - var(--size-4-1));
+    }
+
+    .notebundle-explorer-icon svg {
+        position: relative;
+        inset-inline-start: calc((24px - var(--nav-collapse-icon-size, 16px)) / 2);
+    }
+}
+
+/* Settings: plugin info */
+
+.setting-group .setting-items > .setting-item.notebundle-plugin-info {
+    padding-block: var(--size-4-2, 8px);
+}
+
+/* Settings: automatic conversion */
+
+.notebundle-auto-conversion-description {
+    color: var(--text-normal);
+    font-size: var(--font-ui-small);
+}
+
+/* Settings: description wrapping and spacing */
+
+.notebundle-wrap-setting-descriptions .setting-item-description,
+.notebundle-setting-prose {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
+}
+
+.notebundle-setting-prose {
+    line-height: 1.5;
+}
+
+.notebundle-setting-prose > * + * {
+    margin-block-start: 0.375rem;
+}
+
+/* Settings: naming examples */
+
+.notebundle-naming-examples-setting .setting-item-info {
+    min-width: 0;
+    margin-right: 0;
+}
+
+.notebundle-naming-examples-setting .setting-item-control:empty {
+    display: none;
+}
+
+.notebundle-naming-examples-setting .setting-item-description {
+    container-type: inline-size;
+}
+
+.notebundle-naming-example-source {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--size-4-2);
+    margin-bottom: var(--size-4-2);
+    color: var(--text-muted);
+}
+
+.notebundle-naming-example {
+    display: grid;
+    grid-template-columns: minmax(140px, 1fr) minmax(0, 2fr);
+    align-items: baseline;
+    gap: var(--size-4-2);
+    padding-block: var(--size-4-2);
+    border-top: var(--border-width) solid var(--background-modifier-border);
+}
+
+.notebundle-naming-example-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--size-4-2);
+    color: var(--text-normal);
+    font-weight: var(--font-medium);
+}
+
+.notebundle-naming-examples-setting code {
+    padding: 0;
+    background: none;
+    font-family: var(--font-monospace);
+    font-size: var(--font-ui-small);
+}
+
+.notebundle-naming-example-source code {
+    color: var(--text-muted);
+}
+
+.notebundle-naming-example-path {
+    color: var(--text-muted);
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+
+.notebundle-naming-example.is-selected .notebundle-naming-example-title {
+    color: var(--text-accent);
+    font-weight: var(--font-semibold);
+}
+
+@container (max-width: 22em) {
+    .notebundle-naming-example {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--size-4-1);
+    }
+}
+
+/* Settings: whitelist folders */
+
+.notebundle-whitelist-folder,
+.notebundle-whitelist-folder .search-input-container {
+    width: 100%;
+    min-width: 0;
+}
+
+.notebundle-whitelist-error {
+    margin-top: var(--size-4-1);
+    color: var(--text-error);
+    font-size: var(--font-ui-small);
+    overflow-wrap: anywhere;
+}
