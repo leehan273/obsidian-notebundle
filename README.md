@@ -34,6 +34,10 @@ notes/
 └── todo.md
 ```
 
+## Advantages
+
+Each note and its attachments are stored together in a single folder, making them easy to organize. You also don’t have to carefully choose a filename for every attachment. And you can manage them outside Obsidian without worrying about attachments being left behind or about the default save locations and behavior of other Obsidian-specific plugins.
+
 ## Usage guide
 
 This plugin is designed to resolve attachment placement issues as automatically as possible, while keeping things structured so that users can easily make manual changes at any time, even when the plugin is disabled.
@@ -46,7 +50,7 @@ This plugin is designed to resolve attachment placement issues as automatically 
 
 - When converting to a Notebundle, keep in mind that the existing note will be placed inside a `.notebundle` folder. You may need to update your Bases or Dataview scripts accordingly.
 
-    If the file previously existed only as `Projects/mini-project.md`, after conversion to a notebundle, its actual location could be any of these three:
+    If the file previously existed only as `Projects/mini-project.md`, then, also considering the case where it’s converted into a notes bundle, its actual location could be any of the following three places:
 
     - `Projects/mini-project.md`
     - `Projects/mini-project.notebundle/mini-project.md`
@@ -63,13 +67,13 @@ This plugin is designed to resolve attachment placement issues as automatically 
 
 ## Compatibility Notice
 
-WARNING: Since this plugin’s primary function is managing attachments, it is highly likely to conflict with other plugins that automatically manage attachments (such as plugins that automatically rename attachments or move them to different locations).
+Since this plugin’s primary function is managing attachments, it is highly likely to conflict with other plugins that automatically manage attachments (such as plugins that automatically rename attachments or move them to different locations).
 
 Given Notebundle’s purpose, its features—such as preventing duplicate filenames across notes and automatically placing attachment folders in the same location—can replace those plugins. You can disable other attachment management plugins and use Notebundle’s automatic management features instead.
 
 If you’d rather prioritize your existing attachment management plugin, you can prevent conflicts by disabling all of Notebundle’s automatic management features (turn off Markdown & Canvas auto conversion, and turn on “Disable automatic attachment collection” in the Lab section), then manually convert files and run the “Collect attachments into the current notebundle” command yourself. However, please note that this significantly undermines the purpose of using this plugin.
 
-## How to install
+## Installation
 
 Please use BRAT: [Quick guide for using BRAT](https://tfthacker.com/brat-quick-guide)
 
@@ -79,13 +83,6 @@ https://github.com/leehan273/obsidian-notebundle
 
 ## License
 
-Notebundle Plugin for Obsidian is licensed under the MIT License.
-See [LICENSE](LICENSE).
+Notebundle Plugin for Obsidian is licensed under the MIT License. See [LICENSE](LICENSE).
 
-The distributed `main.js` bundles
-[monkey-around](https://github.com/pjeby/monkey-around)
-3.0.0, whose package declares the ISC License
-and PJ Eby as its author.
-
-See [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt)
-for the third-party license notice.
+For third-party license notices, see [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt).
